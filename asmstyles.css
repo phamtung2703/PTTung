@@ -218,121 +218,175 @@
             opacity: 0.6;
         } 
         /* ===== TOPBAR LAYOUT ===== */
-.topbar-container {
-    width: 95%;
-    max-width: 1200px;
+    .topbar-container {
+        width: 95%;
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    /* ===== LEFT GROUP ===== */
+    .left-group {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* ===== LOGO ===== */
+    .logo {
+        font-size: 22px;
+        font-weight: 800;
+        color: #0ea5e9;
+        white-space: nowrap;
+    }
+
+    .logo span {
+        color: #f43f5e;
+    }
+
+    /* ===== SEARCH ===== */
+    .search-box {
+        flex: 1;
+        max-width: 380px;
+        display: flex;
+        background: #f1f5f9;
+        border-radius: 999px;
+        overflow: hidden;
+    }
+
+    .search-box input {
+        flex: 1;
+        border: none;
+        padding: 8px 14px;
+        outline: none;
+        font-size: 14px;
+        background: transparent;
+    }
+
+    .search-box button {
+        border: none;
+        padding: 0 16px;
+        cursor: pointer;
+        background: #0ea5e9;
+        color: white;
+        font-size: 16px;
+    }
+
+    /* ===== RESPONSIVE NHẸ ===== */
+    @media (max-width: 900px) {
+        .search-box {
+            display: none;
+        }
+    }
+    /* ===== MAP HIỂN THỊ ===== */
+    .footer-map {
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .map-title {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #fff;
+    }
+
+    .map-container {
+        max-width: 600px;
+        margin: 0 auto;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+    }
+
+    .map-container iframe {
+        width: 100%;
+        height: 280px;
+        border: 0;
+    }
+    /* ===== VIDEO SECTION ===== */
+    .video-section {
+        text-align: center;
+        margin: 30px auto;
+    }
+
+    .video-section h2 {
+        color: #fff;
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+
+    .video-container {
+        position: relative;
+        width: 100%;
+        max-width: 800px;
+        padding-bottom: 56.25%; /* 16:9 ratio */
+        height: 0;
+        margin: 0 auto;
+    }
+
+    .video-container iframe {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: 0;
+        top: 0;
+        left: 0;
+    }
+.product-detail {
+    padding: 60px 20px;
+    background: #f5f5f5;
+}
+
+.detail-container {
+    max-width: 1000px;
     margin: auto;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
+    gap: 40px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
 }
 
-/* ===== LEFT GROUP ===== */
-.left-group {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-/* ===== LOGO ===== */
-.logo {
-    font-size: 22px;
-    font-weight: 800;
-    color: #0ea5e9;
-    white-space: nowrap;
-}
-
-.logo span {
-    color: #f43f5e;
-}
-
-/* ===== SEARCH ===== */
-.search-box {
-    flex: 1;
-    max-width: 380px;
-    display: flex;
-    background: #f1f5f9;
-    border-radius: 999px;
-    overflow: hidden;
-}
-
-.search-box input {
-    flex: 1;
-    border: none;
-    padding: 8px 14px;
-    outline: none;
-    font-size: 14px;
-    background: transparent;
-}
-
-.search-box button {
-    border: none;
-    padding: 0 16px;
-    cursor: pointer;
-    background: #0ea5e9;
-    color: white;
-    font-size: 16px;
-}
-
-/* ===== RESPONSIVE NHẸ ===== */
-@media (max-width: 900px) {
-    .search-box {
-        display: none;
-    }
-}
-/* ===== MAP HIỂN THỊ ===== */
-.footer-map {
-    margin-top: 15px;
-    text-align: center;
-}
-
-.map-title {
-    font-size: 16px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #fff;
-}
-
-.map-container {
-    max-width: 600px;
-    margin: 0 auto;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
-}
-
-.map-container iframe {
+.detail-image img {
     width: 100%;
-    height: 280px;
-    border: 0;
-}
-/* ===== VIDEO SECTION ===== */
-.video-section {
-    text-align: center;
-    margin: 30px auto;
+    max-width: 400px;
+    border-radius: 10px;
 }
 
-.video-section h2 {
-    color: #fff;
-    font-size: 22px;
+.detail-info {
+    flex: 1;
+}
+
+.detail-info h2 {
     margin-bottom: 15px;
 }
 
-.video-container {
-    position: relative;
-    width: 100%;
-    max-width: 800px;
-    padding-bottom: 56.25%; /* 16:9 ratio */
-    height: 0;
-    margin: 0 auto;
+.price {
+    font-size: 24px;
+    color: #ff5722;
+    margin-bottom: 20px;
 }
 
-.video-container iframe {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border: 0;
-    top: 0;
-    left: 0;
+.info-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+}
+
+.info-list li {
+    margin-bottom: 10px;
+}
+
+.buy-btn {
+    padding: 14px 30px;
+    font-size: 16px;
+    background: #ff5722;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
 }
