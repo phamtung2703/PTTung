@@ -1,9 +1,15 @@
   
-    .topbar {
+.topbar {
     background: #1e293b;
-    padding: 6px 0; /* giảm từ 12px xuống */
+    padding: 6px 0;
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    }   
+
+    position: fixed;     /* 🔥 ghim header */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}  
 
 
     .topbar-container {
@@ -459,4 +465,7 @@
 .msg {
     margin-top: 15px;
     text-align: center;
+}
+body {
+    padding-top: 60px; /* đúng bằng chiều cao header */
 }
