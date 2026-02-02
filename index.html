@@ -19,7 +19,7 @@
         <div class="menu-left">
             <div class="logo-text">PTT.FCO</div>
 
-            <a href="#" class="menu-item active">Trang chủ</a>
+            <a href="index.html" class="menu-item active">Trang chủ</a>
             <a href="napthe.html" class="menu-item">Nạp thẻ cào</a>
             <a href="#" class="menu-item">Nạp ATM</a>
             <a href="#" class="menu-item">Hướng dẫn</a>
@@ -31,13 +31,12 @@
             <button>Tìm</button>
         </div>
 
-        <!-- RIGHT LOGIN -->
+        <!-- RIGHT -->
         <div class="menu-right">
             <a href="login.html" class="login-btn">ĐĂNG NHẬP</a>
-            <a href="register.html" class="login-btn" style="margin-left:10px; background:#ff7a18;">
-                ĐĂNG KÝ
-            </a>
+            <a href="register.html" class="login-btn register-btn">ĐĂNG KÝ</a>
         </div>
+
     </div>
 </header>
 
@@ -68,21 +67,21 @@
             <h3>Tài khoản game thường</h3>
             <img src="./images/picture1.png">
             <p class="price">599.000 ₫</p>
-            <button onclick="checkLogin()">Mua ngay</button>
+            <button onclick="goBuy('TrangPhu1.html')">Mua ngay</button>
         </div>
 
         <div class="product-card">
             <h3>Tài khoản game VIP</h3>
             <img src="./images/picture3.png">
             <p class="price">899.000 ₫</p>
-            <button onclick="checkLogin()">Mua ngay</button>
+            <button onclick="goBuy('TrangPhu1.html')">Mua ngay</button>
         </div>
 
         <div class="product-card">
             <h3>Tài khoản top server</h3>
             <img src="./images/picture2.png">
             <p class="price">1.599.000 ₫</p>
-            <button onclick="checkLogin()">Mua ngay</button>
+            <button onclick="goBuy('TrangPhu1.html')">Mua ngay</button>
         </div>
 
     </div>
@@ -94,6 +93,8 @@
     <div class="video-container">
         <iframe
             src="https://www.youtube.com/embed/JC_CtvF63UA"
+            title="YouTube video player"
+            frameborder="0"
             allowfullscreen>
         </iframe>
     </div>
@@ -104,31 +105,18 @@
     <p>© 2026 PTT.FCO • Hệ thống bán tài khoản tự động</p>
 </footer>
 
-<!-- ===== SCRIPT LOGIN ===== -->
+<!-- ===== SCRIPT LOGIN CHECK ===== -->
 <script>
+function goBuy(url) {
     const isLogin = localStorage.getItem("isLogin");
-    const user = localStorage.getItem("username");
-    const loginText = document.getElementById("loginText");
 
-    if (isLogin === "true" && user) {
-        loginText.innerText = "Xin chào, " + user + " | Đăng xuất";
-        loginText.href = "#";
-        loginText.onclick = logout;
+    if (isLogin !== "true") {
+        alert("Bạn phải đăng nhập mới mua được!");
+        window.location.href = "login.html";
+    } else {
+        window.location.href = url;
     }
-
-    function logout() {
-        localStorage.removeItem("isLogin");
-        location.reload();
-    }
-
-    function checkLogin() {
-        if (localStorage.getItem("isLogin") !== "true") {
-            alert("Bạn cần đăng nhập để mua hàng!");
-            window.location.href = "login.html";
-        } else {
-            alert("Mua hàng thành công (demo)");
-        }
-    }
+}
 </script>
 
 </body>
