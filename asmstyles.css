@@ -385,8 +385,78 @@
     padding: 14px 30px;
     font-size: 16px;
     background: #ff5722;
-    color: #fff;
+    color: #000000;
     border: none;
     cursor: pointer;
     border-radius: 6px;
+}
+/* ===== REGISTER BUTTON ===== */
+.register-btn {
+    background: #22c55e; /* xanh lá */
+}
+
+.register-btn:hover {
+    background: #16a34a;
+}
+.menu-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+/* ===== NAP THE ===== */
+.napthe-section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.napthe-section h2 {
+    margin-bottom: 10px;
+}
+
+.napthe-section .desc {
+    opacity: 0.8;
+    margin-bottom: 30px;
+}
+
+.napthe-box {
+    max-width: 420px;
+    margin: auto;
+    background: #020617;
+    border: 1px solid #1e293b;
+    border-radius: 16px;
+    padding: 25px;
+    text-align: left;
+}
+
+.napthe-box label {
+    font-size: 14px;
+    margin-top: 10px;
+    display: block;
+}
+
+.napthe-box input,
+.napthe-box select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    background: #f1f5f9;
+}
+
+.napthe-box button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(90deg, #22d3ee, #818cf8);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.msg {
+    margin-top: 15px;
+    text-align: center;
 }
