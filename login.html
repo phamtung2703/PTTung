@@ -4,105 +4,69 @@
     <meta charset="UTF-8">
     <title>Đăng nhập - PTT.FCO</title>
     <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            font-family: 'Catamaran', sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .login-box {
-            width: 360px;
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-
-        .login-box h2 {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-
-        .login-box input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            font-size: 14px;
-        }
-
-        .login-box button {
-            width: 100%;
-            padding: 12px;
-            background: #ff4757;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .login-box button:hover {
-            background: #e84118;
-        }
-
-        .error {
-            color: red;
-            font-size: 13px;
-            text-align: center;
-            margin-bottom: 10px;
-            display: none;
-        }
-
-        .back {
-            text-align: center;
-            margin-top: 15px;
-        }
-
-        .back a {
-            text-decoration: none;
-            color: #1e90ff;
-        }
-    </style>
+    <link rel="stylesheet" href="asmstyles.css">
 </head>
 
 <body>
 
-<div class="login-box">
-    <h2>Đăng nhập PTT.FCO</h2>
+<!-- ===== HEADER ===== -->
+<header class="topbar">
+    <div class="topbar-container">
+        <div class="menu-left">
+            <div class="logo-text">PTT.FCO</div>
+            <a href="index.html" class="menu-item">Trang chủ</a>
+            <a href="napthe.html" class="menu-item">Nạp thẻ cào</a>
+            <a href="#" class="menu-item">Nạp ATM</a>
+            <a href="#" class="menu-item">Hướng dẫn</a>
+        </div>
 
-    <div id="error" class="error">
-        Sai tài khoản hoặc mật khẩu
+        <div class="menu-right">
+            <a href="login.html" class="login-btn">ĐĂNG NHẬP</a>
+            <a href="register.html" class="login-btn">ĐĂNG KÝ</a>
+        </div>
     </div>
+</header>
 
-    <input type="text" id="username" placeholder="Tên đăng nhập">
-    <input type="password" id="password" placeholder="Mật khẩu">
+<!-- ===== LOGIN ===== -->
+<section class="napthe-section">
+    <h2>🔐 Đăng nhập</h2>
 
-    <button onclick="login()">Đăng nhập</button>
+    <div class="napthe-box">
+        <label>Tên đăng nhập</label>
+        <input type="text" id="loginUser" placeholder="Nhập username">
 
-    <div class="back">
-        <a href="index.html">← Quay về trang chủ</a>
+        <label>Mật khẩu</label>
+        <input type="password" id="loginPass" placeholder="Nhập mật khẩu">
+
+        <button onclick="login()">Đăng nhập</button>
+
+        <p style="margin-top:15px;text-align:center;">
+            Chưa có tài khoản?
+            <a href="register.html" style="color:#38bdf8;">Đăng ký</a>
+        </p>
     </div>
-</div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <p>© 2026 PTT.FCO • Hệ thống bán tài khoản tự động</p>
+</footer>
 
 <script>
 function login() {
-    const user = document.getElementById("username").value;
-    const pass = document.getElementById("password").value;
+    const user = document.getElementById("loginUser").value;
+    const pass = document.getElementById("loginPass").value;
 
     const savedUser = localStorage.getItem("username");
     const savedPass = localStorage.getItem("password");
 
-    if (user === savedUser && pass === savedPass) {
-        localStorage.setItem("isLogin", "true"); // 🔥 DÒNG QUYẾT ĐỊNH
+    if (!user || !pass) {
+        alert("Vui lòng nhập đầy đủ thông tin!");
+        return;
+    }
 
+    if (user === savedUser && pass === savedPass) {
+        localStorage.setItem("isLogin", "true");
         alert("Đăng nhập thành công!");
         window.location.href = "index.html";
     } else {
@@ -110,7 +74,6 @@ function login() {
     }
 }
 </script>
-
 
 </body>
 </html>
