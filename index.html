@@ -15,27 +15,29 @@
 <header class="topbar">
     <div class="topbar-container">
 
-        <!-- LEFT: LOGO TEXT + MENU -->
+        <!-- LEFT -->
         <div class="menu-left">
             <div class="logo-text">PTT.FCO</div>
 
             <a href="#" class="menu-item active">Trang chủ</a>
-            <a href="#" class="menu-item">Nạp thẻ cào</a>
+            <a href="napthe.html" class="menu-item">Nạp thẻ cào</a>
             <a href="#" class="menu-item">Nạp ATM</a>
             <a href="#" class="menu-item">Hướng dẫn</a>
         </div>
 
-        <!-- CENTER: SEARCH -->
+        <!-- SEARCH -->
         <div class="search-box">
             <input type="text" placeholder="Tìm tài khoản game...">
             <button>Tìm</button>
         </div>
 
-        <!-- RIGHT: LOGIN -->
+        <!-- RIGHT LOGIN -->
         <div class="menu-right">
-            <a href="#" class="login-btn">ĐĂNG NHẬP</a>
+            <a href="login.html" class="login-btn">ĐĂNG NHẬP</a>
+            <a href="register.html" class="login-btn" style="margin-left:10px; background:#ff7a18;">
+                ĐĂNG KÝ
+            </a>
         </div>
-
     </div>
 </header>
 
@@ -66,68 +68,68 @@
             <h3>Tài khoản game thường</h3>
             <img src="./images/picture1.png">
             <p class="price">599.000 ₫</p>
-            <a href="TrangPhu1.html">
-    <button>Mua ngay</button>
-</a>
-
+            <button onclick="checkLogin()">Mua ngay</button>
         </div>
 
         <div class="product-card">
             <h3>Tài khoản game VIP</h3>
             <img src="./images/picture3.png">
             <p class="price">899.000 ₫</p>
-            <a href="TrangPhu1.html">
-    <button>Mua ngay</button>
-</a>
->
+            <button onclick="checkLogin()">Mua ngay</button>
         </div>
 
         <div class="product-card">
             <h3>Tài khoản top server</h3>
             <img src="./images/picture2.png">
             <p class="price">1.599.000 ₫</p>
-            <a href="TrangPhu1.html">
-    <button>Mua ngay</button>
-</a>
-
+            <button onclick="checkLogin()">Mua ngay</button>
         </div>
+
     </div>
-<!-- ===== VIDEO YOUTUBE ===== -->
+</section>
+
+<!-- ===== VIDEO ===== -->
 <section class="video-section">
     <h2>🎥 Video nổi bật</h2>
     <div class="video-container">
         <iframe
             src="https://www.youtube.com/embed/JC_CtvF63UA"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen>
         </iframe>
     </div>
 </section>
 
-
 <!-- ===== FOOTER ===== -->
 <footer class="site-footer">
     <p>© 2026 PTT.FCO • Hệ thống bán tài khoản tự động</p>
-
-    <div class="footer-map">
-        <p class="map-title">📍 Cosma</p>
-
-        <div class="map-container">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3917.468569836516!2d106.60390931525947!3d10.790260892279347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752d000fa398e7%3A0x51795ae198366e73!2sCa%CC%80%20phe%CC%80%20Cosma!5e0!3m2!1svi!2s!4v1706380000000!5m2!1svi!2s"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
-        </div>
-    </div>
 </footer>
 
+<!-- ===== SCRIPT LOGIN ===== -->
+<script>
+    const isLogin = localStorage.getItem("isLogin");
+    const user = localStorage.getItem("username");
+    const loginText = document.getElementById("loginText");
 
+    if (isLogin === "true" && user) {
+        loginText.innerText = "Xin chào, " + user + " | Đăng xuất";
+        loginText.href = "#";
+        loginText.onclick = logout;
+    }
 
+    function logout() {
+        localStorage.removeItem("isLogin");
+        location.reload();
+    }
 
+    function checkLogin() {
+        if (localStorage.getItem("isLogin") !== "true") {
+            alert("Bạn cần đăng nhập để mua hàng!");
+            window.location.href = "login.html";
+        } else {
+            alert("Mua hàng thành công (demo)");
+        }
+    }
+</script>
 
 </body>
 </html>
