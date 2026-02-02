@@ -4,120 +4,73 @@
     <meta charset="UTF-8">
     <title>Đăng ký - PTT.FCO</title>
     <link href="https://fonts.googleapis.com/css2?family=Catamaran:wght@400;700&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            font-family: 'Catamaran', sans-serif;
-            background: linear-gradient(135deg, #141e30, #243b55);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .register-box {
-            width: 380px;
-            background: #fff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-        }
-
-        h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        input {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 15px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            width: 100%;
-            padding: 12px;
-            background: #1e90ff;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #0b78e3;
-        }
-
-        .note {
-            margin-top: 15px;
-            text-align: center;
-            font-size: 14px;
-        }
-
-        .note a {
-            color: #1e90ff;
-            text-decoration: none;
-        }
-
-        .error {
-            color: red;
-            font-size: 13px;
-            text-align: center;
-            margin-bottom: 10px;
-            display: none;
-        }
-    </style>
+    <link rel="stylesheet" href="asmstyles.css">
 </head>
 
 <body>
 
-<div class="register-box">
-    <h2>Đăng ký tài khoản</h2>
+<!-- ===== HEADER ===== -->
+<header class="topbar">
+    <div class="topbar-container">
+        <div class="menu-left">
+            <div class="logo-text">PTT.FCO</div>
+            <a href="index.html" class="menu-item">Trang chủ</a>
+            <a href="napthe.html" class="menu-item">Nạp thẻ cào</a>
+            <a href="#" class="menu-item">Nạp ATM</a>
+            <a href="#" class="menu-item">Hướng dẫn</a>
+        </div>
 
-    <div id="error" class="error"></div>
-
-    <input type="text" id="username" placeholder="Tên đăng nhập">
-    <input type="password" id="password" placeholder="Mật khẩu">
-    <input type="password" id="repassword" placeholder="Nhập lại mật khẩu">
-
-    <button onclick="register()">Đăng ký</button>
-
-    <div class="note">
-        Đã có tài khoản? <a href="login.html">Đăng nhập</a>
+        <div class="menu-right">
+            <a href="login.html" class="login-btn">ĐĂNG NHẬP</a>
+            <a href="register.html" class="login-btn">ĐĂNG KÝ</a>
+        </div>
     </div>
-</div>
+</header>
+
+<!-- ===== REGISTER ===== -->
+<section class="napthe-section">
+    <h2>📝 Đăng ký tài khoản</h2>
+
+    <div class="napthe-box">
+        <label>Tên đăng nhập</label>
+        <input type="text" id="regUser" placeholder="Nhập username">
+
+        <label>Mật khẩu</label>
+        <input type="password" id="regPass" placeholder="Nhập mật khẩu">
+
+        <button onclick="register()">Đăng ký</button>
+
+        <p style="margin-top:15px;text-align:center;">
+            Đã có tài khoản?
+            <a href="login.html" style="color:#38bdf8;">Đăng nhập</a>
+        </p>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <p>© 2026 PTT.FCO • Hệ thống bán tài khoản tự động</p>
+</footer>
 
 <script>
-    function register() {
-        const user = document.getElementById("username").value;
-        const pass = document.getElementById("password").value;
-        const repass = document.getElementById("repassword").value;
-        const error = document.getElementById("error");
+function register() {
+    const user = document.getElementById("regUser").value;
+    const pass = document.getElementById("regPass").value;
 
-        if (user === "" || pass === "" || repass === "") {
-            error.innerText = "Vui lòng nhập đầy đủ thông tin";
-            error.style.display = "block";
-            return;
-        }
-
-        if (pass !== repass) {
-            error.innerText = "Mật khẩu không khớp";
-            error.style.display = "block";
-            return;
-        }
-
-        // ✅ LƯU TÀI KHOẢN VÀO TRÌNH DUYỆT
-        localStorage.setItem("username", user);
-        localStorage.setItem("password", pass);
-
-        alert("Đăng ký thành công!");
-        window.location.href = "login.html";
+    if (!user || !pass) {
+        alert("Vui lòng nhập đầy đủ thông tin!");
+        return;
     }
+
+    localStorage.setItem("username", user);
+    localStorage.setItem("password", pass);
+    localStorage.setItem("isLogin", "false");
+
+    alert("Đăng ký thành công! Vui lòng đăng nhập.");
+    window.location.href = "login.html";
+}
 </script>
 
 </body>
 </html>
+
